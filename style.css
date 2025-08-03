@@ -1,0 +1,297 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f2f7; /* สีพื้นหลังเว็บอ่อนๆ */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* จัดให้อยู่ด้านบนๆ แทนกึ่งกลางทั้งหมด */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* รวม padding ในขนาด */
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 800px; /* กำหนดความกว้างสูงสุด */
+    text-align: center;
+    margin-top: 20px; /* ขยับลงมาจากด้านบนหน่อย */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* --- Search Section --- */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+#searchInput {
+    width: 70%;
+    padding: 12px 15px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #2980b9;
+}
+
+#searchButton {
+    padding: 12px 25px;
+    margin-left: 10px;
+    background-color: #2ecc71; /* สีเขียว */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#searchButton:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+#searchButton:active {
+    transform: translateY(0);
+}
+
+/* --- Results Display Section --- */
+.results-section {
+    background-color: #f8f9fa;
+    border: 1px dashed #cccccc;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 100px; /* กำหนดความสูงขั้นต่ำ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+    text-align: left; /* ข้อความผลลัพธ์จัดซ้าย */
+}
+
+.results-section h3 {
+    color: #34495e;
+    margin-top: 0;
+}
+
+.results-section p {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.results-section .bin-color-display {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    display: inline-block; /* ทำให้เป็นบล็อกเล็กๆ */
+}
+
+/* สีพื้นหลังสำหรับชื่อถังขยะที่แสดงผลค้นหา */
+.bin-color-yellow { background-color: #f1c40f; } /* เหลือง */
+.bin-color-green { background-color: #27ae60; } /* เขียว */
+.bin-color-blue { background-color: #3498db; }  /* ฟ้า */
+.bin-color-red { background-color: #e74c3c; }   /* แดง */
+
+
+.initial-message {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+
+/* --- Waste Type Info Section (Accordion) --- */
+.waste-type-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.waste-type-info h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.bin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* ปรับขนาดคอลัมน์อัตโนมัติ */
+    gap: 15px;
+}
+
+.bin-item {
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: stretch; /* <--- ลบบรรทัดนี้ */ 
+    position: relative;
+    overflow: hidden; /* <--- สำคัญมาก: เพื่อซ่อนเนื้อหาที่เกินขอบตอนที่กล่องปิด */
+    /* min-height: 120px; /* <--- สำคัญมาก: ลบบรรทัดนี้ออก */ 
+}
+
+/* กำหนดสีพื้นหลังสำหรับแต่ละถัง */
+.green-bin { background-color: #2ecc71; }
+.yellow-bin { background-color: #f1c40f; }
+.blue-bin { background-color: #3498db; }
+.red-bin { background-color: #e74c3c; }
+
+
+/* สไตล์สำหรับรูปถังขยะใน Header */
+.bin-icon {
+    width: 40px; /* ขนาดเริ่มต้นของไอคอนถังขยะ */
+    height: 40px;
+    margin-right: 15px; /* ระยะห่างจากข้อความ */
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    flex-shrink: 0; /* ป้องกันไม่ให้ไอคอนหดตัว */
+}
+
+/* เมื่อ Header ถูก Active ให้ไอคอนถังขยะขยายขึ้น */
+.toggle-header.active .bin-icon {
+    width: 80px; /* ขนาดไอคอนที่ขยายใหญ่ขึ้น */
+    height: 80px;
+    transform: translateY(-5px); /* ขยับขึ้นเล็กน้อยเพื่อเพิ่มมิติ */
+}
+
+/* สไตล์สำหรับส่วนที่กดได้ (Header) */
+.toggle-header {
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    display: flex; /* ใช้ flexbox จัดวางลูกศรและเนื้อหา */
+    justify-content: flex-start; /* ไอคอนกับข้อความชื่อขยะอยู่ชิดซ้าย */
+    align-items: center;
+    transition: background-color 0.2s ease;
+    margin-bottom: 0;
+    width: 100%; /* ทำให้ toggle-header เต็มความกว้างของ bin-item */
+    box-sizing: border-box; /* รวม padding ในขนาด */
+    position: relative; /* สำหรับให้ arrow absolute ทำงานได้ */
+    padding-right: 40px; /* เพิ่ม padding ด้านขวาเพื่อไม่ให้ข้อความทับลูกศร */
+}
+
+.toggle-header:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* สไตล์สำหรับข้อความชื่อประเภทขยะใน Header */
+/* โค้ด HTML ของคุณมีข้อความอยู่ใน h3 โดยตรง ไม่ได้อยู่ใน span แยก
+   ดังนั้นเราจะไม่ใช้ .toggle-header span:not(.arrow) แล้ว
+   แต่จะควบคุมการจัดวางใน toggle-header โดยตรง */
+
+/* สไตล์สำหรับลูกศร */
+.arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+    position: absolute; /* ทำให้ลูกศรลอยอยู่ด้านขวา */
+    right: 15px; /* ระยะห่างจากขอบขวา */
+    top: 50%; /* จัดกึ่งกลางแนวตั้ง */
+    transform: translateY(-50%); /* ปรับตำแหน่งให้กึ่งกลางจริง */
+}
+
+/* เมื่อ Header ถูก "active" (ถูกคลิก/เปิดอยู่) ให้หมุนลูกศรขึ้น */
+.toggle-header.active .arrow {
+    transform: translateY(-50%) rotate(180deg); /* หมุนลูกศรขึ้นพร้อมจัดกึ่งกลาง */
+}
+
+/* สไตล์สำหรับเนื้อหาที่ซ่อน/แสดง */
+.toggle-content {
+    max-height: 0; /* <--- ต้องเป็น 0 เสมอเมื่อไม่ได้ active */
+    overflow: hidden; /* <--- สำคัญมาก: เพื่อซ่อนเนื้อหาที่เกินขอบ */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* อนิเมชั่นการสไลด์ */
+    padding: 0 10px; /* <--- ต้องเป็น 0 10px เสมอเมื่อไม่ได้ active */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* เมื่อ toggle-content ถูก "active" (ถูกคลิก/เปิดอยู่) */
+.toggle-content.active {
+    max-height: 1500px; /* ค่านี้ควรสูงพอที่จะรองรับเนื้อหาที่ยาวที่สุด */
+    padding: 15px 10px;
+}
+
+/* ปรับสไตล์ของ p ใน toggle-content ให้เข้ากัน */
+.toggle-content p, .toggle-content ul {
+    color: #eee; /* สีข้อความภายในเป็นสีอ่อน */
+    text-align: left; /* จัดชิดซ้าย */
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.toggle-content p:first-child { /* ทำให้ "คืออะไร:" ไม่โผล่ขึ้นมา */
+    margin-top: 0;
+}
+
+.toggle-content ul {
+    list-style-type: disc; /* เพิ่มหัวข้อย่อย */
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.toggle-content ul li {
+    margin-bottom: 5px;
+}
+
+
+/* --- Responsive Design (สำหรับหน้าจอเล็ก) --- */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin-top: 0;
+    }
+    .search-section {
+        flex-direction: column;
+    }
+    #searchInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #searchButton {
+        width: 100%;
+        margin-left: 0;
+    }
+    .bin-grid {
+        grid-template-columns: 1fr; /* บนมือถือแสดง 1 คอลัมน์ */
+    }
+}
+
+/* ซ่อนรูปภาพถังขยะทั้งหมดในตอนแรก */
+.bin-result-image {
+    display: none;
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    object-fit: contain;
+}
+
+/* แสดงรูปภาพถังขยะตามประเภทที่ค้นหาเจอ */
+.bin-color-yellow .bin-result-image:nth-child(2),
+.bin-color-green .bin-result-image:nth-child(1),
+.bin-color-blue .bin-result-image:nth-child(3),
+.bin-color-red .bin-result-image:nth-child(4) {
+    display: block; /* หรือ display: inline-block; */
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Sorting Guide - คู่มือแยกขยะ</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="container">
+    <h1>คู่มือแยกขยะฉบับง่าย</h1>
+    <p>ค้นหาสิ่งของที่คุณต้องการทิ้ง แล้วเราจะบอกว่าควรทิ้งถังไหน!</p>
+
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="พิมพ์ชื่อสิ่งของ (เช่น ขวดพลาสติก, เศษอาหาร)">
+        <button id="searchButton">ค้นหา</button>
+    </div>
+
+    <div id="results-display" class="results-section">
+        <p class="initial-message">ลองพิมพ์ชื่อสิ่งของแล้วกดค้นหาดูสิ!</p>
+    </div>
+    <div class="waste-type-info">
+    <h2>ประเภทถังขยะในประเทศไทย (โดยทั่วไป)</h2>
+    </div>
+    <div class="bin-grid">
+        <div class="bin-item green-bin">
+            <h3 class="toggle-header"><img src="images/bin-green.png" alt="ถังขยะเขียว" class="bin-icon"> ขยะเปียก / อินทรีย์ <span class="arrow">▼</span></h3>
+            <div class="toggle-content">
+                <p><strong>คืออะไร:</strong> ขยะที่ย่อยสลายได้ง่ายและรวดเร็ว</p>
+                <p><strong>ตัวอย่าง:</strong> เศษอาหาร, ผักผลไม้, เปลือกผลไม้, เศษเนื้อสัตว์, กากกาแฟ, ใบไม้, กิ่งไม้เล็กๆ, หญ้า, อาหารที่เหลือจากการบริโภค</p>
+                <p><strong>คำแนะนำ:</strong> สามารถนำไปทำปุ๋ยหมัก หรือทิ้งลงถังขยะเปียกเพื่อนำไปกำจัดอย่างถูกวิธี หากมีปริมาณมากและไม่แน่ใจการกำจัด ให้รวบรวมใส่ถุงแยก</p>
+            </div>
+        </div>
+
+        <div class="bin-item yellow-bin">
+            <h3 class="toggle-header"><img src="images/bin-yellow.png" alt="ถังขยะเหลือง" class="bin-icon"> ขยะรีไซเคิล <span class="arrow">▼</span></h3>
+            <div class="toggle-content">
+                <p><strong>คืออะไร:</strong> ขยะที่สามารถนำกลับมาใช้ใหม่ได้ ผ่านกระบวนการแปรรูป</p>
+                <p><strong>ตัวอย่าง:</strong>
+                    <ul>
+                        <li><strong>พลาสติก:</strong> ขวดน้ำพลาสติก (PET, HDPE), ขวดแชมพู, ขวดนม, แก้วพลาสติกใส, ถุงพลาสติกใสสะอาด</li>
+                        <li><strong>กระดาษ:</strong> กระดาษหนังสือพิมพ์, กล่องกระดาษ (ลัง), กระดาษ A4, นิตยสาร, สมุด, กล่องนม/กล่องน้ำผลไม้ (ล้างและบีบแบน)</li>
+                        <li><strong>โลหะ:</strong> กระป๋องน้ำอัดลม, กระป๋องเบียร์, เศษเหล็ก, อะลูมิเนียมฟอยล์สะอาด</li>
+                        <li><strong>แก้ว:</strong> ขวดแก้วสีต่างๆ (เขียว, ชา, ใส), ขวดเครื่องดื่ม, ขวดอาหาร (ล้างและทำความสะอาด)</li>
+                    </ul>
+                </p>
+                <p><strong>คำแนะนำ:</strong> ควรล้างทำความสะอาดสิ่งปนเปื้อน แยกประเภทให้ชัดเจน เพื่อเพิ่มมูลค่าในการรีไซเคิล และบีบอัดให้แบนเพื่อประหยัดพื้นที่</p>
+            </div>
+        </div>
+
+        <div class="bin-item blue-bin">
+            <h3 class="toggle-header"><img src="images/bin-blue.png" alt="ถังขยะฟ้า" class="bin-icon"> ขยะทั่วไป <span class="arrow">▼</span></h3>
+            <div class="toggle-content">
+                <p><strong>คืออะไร:</strong> ขยะที่ไม่สามารถนำไปรีไซเคิลหรือกำจัดด้วยวิธีอื่นได้ง่าย</p>
+                <p><strong>ตัวอย่าง:</strong> ถุงพลาสติกเปื้อนอาหาร, กล่องโฟม, ซองขนม, ซองบะหมี่สำเร็จรูป, เศษผ้า, เศษหนัง, ยางรัดของ, หลอดดูดน้ำ, ช้อนพลาสติกใช้แล้วทิ้ง, หน้ากากอนามัย</p>
+                <p><strong>คำแนะนำ:</strong> เป็นขยะที่ต้องนำไปกำจัดโดยการฝังกลบหรือเผา ควรจัดการให้ถูกสุขลักษณะและลดปริมาณให้มากที่สุด</p>
+            </div>
+        </div>
+
+        <div class="bin-item red-bin">
+            <h3 class="toggle-header"><img src="images/bin-red.png" alt="ถังขยะแดง" class="bin-icon"> ขยะอันตราย <span class="arrow">▼</span></h3>
+            <div class="toggle-content">
+                <p><strong>คืออะไร:</strong> ขยะที่มีส่วนประกอบของสารอันตราย หรือสารเคมีที่อาจเป็นอันตรายต่อสิ่งมีชีวิตและสิ่งแวดล้อม</p>
+                <p><strong>ตัวอย่าง:</strong> ถ่านไฟฉาย, แบตเตอรี่มือถือ/รถยนต์, หลอดไฟ (ฟลูออเรสเซนต์, LED), กระป๋องสเปรย์ (ยาฆ่าแมลง, สีสเปรย์), ภาชนะบรรจุสารเคมี, อุปกรณ์อิเล็กทรอนิกส์ขนาดเล็ก (e-waste)</p>
+                <p><strong>คำแนะนำ:</strong> ต้องแยกทิ้งในถังขยะอันตราย หรือจุดรับเฉพาะ เพื่อให้หน่วยงานที่เกี่ยวข้องนำไปกำจัดอย่างถูกวิธี ห้ามทิ้งรวมกับขยะทั่วไปโดยเด็ดขาด</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+    </body>
+</html>
